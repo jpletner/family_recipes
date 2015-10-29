@@ -1,0 +1,78 @@
+<!-- header-->
+<%= render 'header' %>
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <% if !@recipe.ratings.average(:rate).nil? %>
+      <h1><%= @recipe.title %></h1>
+      <h2 id="rate"><%= @recipe.ratings.average(:rate).round(1) %></h2>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-offset-4 col-md-2 well margin">
+    <p id="notice"><%= notice %></p>
+    <p>
+      <strong>Title:</strong>
+      <%= @recipe.title %>
+    </p>
+    <p>
+      <strong>Author:</strong>
+      <%= @recipe.author %>
+    </p>
+    <p>
+      <strong>Ingredients:</strong>
+      <%= @recipe.ingredients %>
+    </p>
+    <p>
+      <strong>Instructions:</strong>
+      <%= @recipe.instructions %>
+    </p>
+    <strong>Tags:</strong>
+    <% if @recipe.tags.any? %>
+      <p>
+        <% @recipe.tags.each do |tag| %>
+          <%= tag.name %>
+        <% end %>
+      </p>
+    <% else %>
+      <p>none available</p>
+    <% end %>
+</div>
+
+
+<div class="col-md-2 well">
+      <form class="new_tag" id="new_tag" action="/recipes/<%= @recipe.id %>/add_tag" accept-charset="UTF-8" method="post">
+        <div class="field">
+          <label for="tag_name">Tag Name</label><br>
+          <input type="text" name="tag[name]" id="tag_name" />
+        </div>
+        <div class="actions">
+          <input type="submit" name="commit" value="Add Tag" />
+        </div>
+      </form>
+      <form class="new_rating" id="new_rating" action="/recipes/<%= @recipe.id %>/add_rating" accept-charset="UTF-8" method="post">
+        <div class="row lead">
+            <div id="stars" class="starrr"></div>
+            You gave a rating of <span name="rating[rate]" id="count">0</span> star(s)
+    	  </div>
+        <div class="actions">
+          <input type="submit" name="commit" value="Add Rating" />
+        </div>
+      </form>
+  		<form class="new_rating" id="new_rating" action="/recipes/<%= @recipe.id %>/add_rating" accept-charset="UTF-8" method="post">
+  			<div class="field">
+  				<label for="rating_name">Rating</label><br>
+  				<input type="text" name="rating[rate]" id="rating_rate"  />
+  			</div>
+  			<div class="actions">
+  				<input type="submit" name="commit" value="Add Rating" />
+  			</div>
+  		</form>
+      <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+      <%= link_to 'Back', recipes_path %>
+    </div>
+  </div>
+</div>

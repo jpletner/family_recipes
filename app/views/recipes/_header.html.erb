@@ -1,0 +1,20 @@
+<!--header-->
+<header>
+<div class="banner row" id="banner">
+  <div class="parallax text-center" style="background-image: url(http://wowthemes.net/demo/leroy/img/dummy1.jpg);">
+    <div class="parallax-pattern-overlay">
+      <div class="container text-center" style="height:580px;padding-top:170px;">
+        <%= image_tag "logo.png", :id => "site-title", :class => "wow fadeInDown" %>
+        <h2 class="intro wow zoomIn" wow-data-delay="0.4s" wow-data-duration="0.9s">Family Recipes</h2>
+        <div>
+          <h1 class="white">Search Recipes</h1>
+              <form action ="/tags/search" method="get">
+                <input id="tag_search_input" type="text" name="search_string" />
+                <input type="submit" value="Search" />
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>

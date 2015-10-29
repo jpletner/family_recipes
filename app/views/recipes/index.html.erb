@@ -1,0 +1,248 @@
+<!--header-->
+	<header>
+	<div class="banner row" id="banner">
+		<div class="parallax text-center" style="background-image: url(http://wowthemes.net/demo/leroy/img/dummy1.jpg);">
+			<div class="parallax-pattern-overlay">
+				<div class="container text-center" style="height:580px;padding-top:170px;">
+					<%= image_tag "logo.png", :id => "site-title", :class => "wow fadeInDown" %>
+					<h2 class="intro wow zoomIn" wow-data-delay="0.4s" wow-data-duration="0.9s">Family Recipes</h2>
+					<div>
+						<h1 class="white">Search Recipes</h1>
+								<form action ="/tags/search" method="get">
+									<label for="tag_search_input">Enter Tag</label>
+									<input id="tag_search_input" type="text" name="search_string" />
+									<input type="submit" value="Search" />
+								</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="menu">
+		<div class="navbar-wrapper">
+			<div class="container">
+				<div class="navwrapper">
+					<div class="navbar navbar-inverse navbar-static-top">
+						<div class="container">
+							<div class="navArea">
+								<div class="navbar-collapse collapse">
+									<ul class="nav navbar-nav">
+										<li class="menuItem active"><a href="#wrapper">Home</a></li>
+										<li class="menuItem"><a href="#aboutus">About Us</a></li>
+										<li class="menuItem"><a href="#specialties">Top Families</a></li>
+										<li class="menuItem"><a href="#gallery">Tag Gallery</a></li>
+										<li class="menuItem"><a href="#feedback">Feedback</a></li>
+										<li class="menuItem"><a href="#contact">Newsletter</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</header>
+
+
+
+
+
+	<!--about us-->
+	<section class="aboutus" id="aboutus">
+	<div class="container">
+		<div class="heading text-center">
+			<%= image_tag 'sep.png' %>
+			<h2>About Family Recipes</h2>
+			<%= image_tag 'sep.png' %>
+			<br>
+			<br>
+			<br>
+			<h1>Families of the Week</h1>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="papers text-center">
+					<img src="http://wowthemes.net/demo/leroy/img/dummies/18.jpg" alt=""><br/>
+					<a href="#"><b>Download my resume</b></a>
+					<h4 class="notopmarg nobotmarg">Pletner</h4>
+					<p>
+						bio here
+					</p>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="papers text-center">
+					<img src="http://wowthemes.net/demo/leroy/img/dummies/19.jpg" alt=""><br/>
+					<a href="#"><b>Download my resume</b></a>
+					<h4 class="notopmarg nobotmarg">Brysiewicz</h4>
+					<p>
+						bio here
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<!--Ruby Testing-->
+	<section class="aboutus" id="recipes">
+	<div class="container">
+		<div class="heading text-center">
+			<%= image_tag 'sep.png' %>
+			<h2>Recipe List</h2>
+			<%= image_tag 'sep.png' %>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<p id="notice"><%= notice %></p>
+
+				<table class="recipe_list">
+				  <thead>
+				    <tr>
+							<th>Rating</th>
+				      <th>Title</th>
+				      <th>Author</th>
+				      <th>Ingredients</th>
+				      <th>Instructions</th>
+				      <th colspan="3"></th>
+				    </tr>
+				  </thead>
+
+				  <tbody>
+				    <% @recipes.each do |recipe| %>
+				      <tr>
+								<td><% if !recipe.ratings.average(:rate).nil? %>
+						      <h2><%= recipe.ratings.average(:rate).round(1) %></h2>
+						    <% end %>
+								</td>
+				        <td><%= recipe.title %></td>
+				        <td><%= recipe.author %></td>
+				        <td><%= recipe.ingredients %></td>
+				        <td><%= recipe.instructions %></td>
+				        <td><%= link_to 'Show', recipe %></td>
+				        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+				        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				      </tr>
+				    <% end %>
+				  </tbody>
+				</table>
+
+				<br>
+					<%= link_to 'Add Recipe', new_recipe_path, :class => "new_recipe_btn" %>
+			</div>
+		</div>
+	</div>
+	</section>
+
+
+	<!-- specialties-->
+	<%= render 'rated' %>
+
+	<!-- gallery-->
+	<%= render 'gallery' %>
+
+	<!--feedback-->
+	<section class="feedback" id="feedback">
+	<div class="container w960">
+		<div class="heading">
+			<%= image_tag 'sep.png' %>
+			<h2>Word on the block...</h2>
+			<%= image_tag 'sep.png' %>
+			<h3>Phasellus non dolor nibh. Nullam elementum tellus pretium feugiat.<br>
+			 Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed tincidunt tristique enim sed sollcitudin.</h3>
+		</div>
+		<div class="row">
+		<blockquote>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages." <cite>Jogn De, Birthday Event<br/><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></cite> </blockquote>
+		<blockquote>Have you ever felt worried that your party will not raise up to your guest expectations? In design, vertical rhythm is the structure that guides a reader’s eye through the content. Good vertical rhythm makes a layout more balanced and beautiful and its content more readable. The time signature in sheet music visually depicts a song’s rhythm, while for us, the lines of the baseline grid depict the rhythm of our content and give us guidelines. <cite>Marta Kay, Business Cocktalil<br/><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></cite> </blockquote>
+		</div>
+	</div>
+	</section>
+
+	<!--feedback-->
+	<section class="contact" id="contact">
+	<div class="container">
+		<div class="heading">
+			<%= image_tag 'sep.png' %>
+				<h2>Newsletter Sign Up</h2>
+				<%= image_tag 'sep.png' %>
+				<h3>Phasellus non dolor nibh. Nullam elementum tellus pretium feugiat.<br>
+				 Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed tincidunt tristique enim sed sollcitudin.</h3>
+		</div>
+	</div>
+	 <div class="container w960">
+      <div class="row">
+		<div class="done">
+			<div class="alert alert-success">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				Your message has been sent. Thank you!
+			</div>
+		</div>
+       <form method="post" action="contact.php" id="contactform">
+          <input name="name" type="text" class="contact col-md-6" placeholder="Your Name *" >
+          <input name="email" type="email" class="contact noMarr col-md-6" placeholder="E-mail address *" >
+          <textarea name="comment" class="contact col-md-12" placeholder="Message *"></textarea>
+          <input type="submit" id="submit" class="contact submit" value="Send message">
+        </form>
+      </div>
+    </div>
+	</section>
+
+	<!--footer-->
+	<section class="footer" id="footer">
+	<p class="text-center">
+		<a href="#wrapper" class="gototop"><i class="fa fa-angle-double-up fa-2x"></i></a>
+	</p>
+	<div class="container">
+		<ul>
+			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+			<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+			<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+			<li><a href="#"><i class="fa fa-flickr"></i></a></li>
+		</ul>
+		<p>
+			&copy; 2015 Copyright Family Recipes Inc.<br>
+		</p>
+	</div>
+	</section>
+
+</div><!--wrapper end-->
+
+<!--Javascripts-->
+<script src="js/jquery.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/menustick.js"></script>
+<script src="js/parallax.js"></script>
+<script src="js/easing.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/masonry.js"></script>
+<script src="js/imgloaded.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/colorfinder.js"></script>
+<script src="js/gridscroll.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/common.js"></script>
+
+<script type="text/javascript">
+jQuery(function($) {
+$(document).ready( function() {
+  //enabling stickUp on the '.navbar-wrapper' class
+	$('.navbar-wrapper').stickUp({
+		parts: {
+		  0: 'banner',
+		  1: 'aboutus',
+		  2: 'specialties',
+		  3: 'gallery',
+		  4: 'feedback',
+		  5: 'contact'
+		},
+		itemClass: 'menuItem',
+		itemHover: 'active',
+		topMargin: 'auto'
+		});
+	});
+});
+</script>
