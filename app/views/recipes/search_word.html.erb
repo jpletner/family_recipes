@@ -1,0 +1,15 @@
+<h1>Recipe Search by Word Page</h1>
+
+<h3 class="white">Search Recipes</h3>
+  <form action ="/recipes/search_word" method="get">
+  <label for="word_search_input">Enter Text</label>
+  <input id="word_search_input" type="text" name="search_word" />
+  <input type="submit" value="Search" />
+  </form>
+
+
+
+          <h1>Recipes Found:</h1>
+          <% @recipes.each do |recipe| %>
+              <%= link_to recipe.title, recipe %><br/>
+          <% end %>

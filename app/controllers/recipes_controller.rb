@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /recipes
   # GET /recipes.json
@@ -7,6 +8,7 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
     @tags = Tag.all
     @ratings = Rating.all
+    @recipes = Recipe.order(sort_column + " " + sort_direction)
   end
 
   # GET /recipes/1
@@ -95,7 +97,25 @@ class RecipesController < ApplicationController
     end
   end
 
+  def search_word
+    if !params[:search_word].nil?
+        search_word = params[:search_word].strip
+        @recipes = Recipe.where("title LIKE '%#{search_word}%'")
+    end
+  end
+
+
   private
+
+    # Setting defaults for sorting
+    def sort_column
+      Recipe.column_names.include?(params[:sort]) ? params[:sort] : "title"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
       @recipe = Recipe.find(params[:id])

@@ -1,4 +1,4 @@
-require 'rails_helper'
+require_relative '../rails_helper'
 
 RSpec.describe "tags/edit", type: :view do
   before(:each) do

@@ -11,7 +11,14 @@ class Recipe < ActiveRecord::Base
                                 reject_if: proc { |attributes| attributes['name'].blank? },
                                 allow_destroy: true
 
-      def to_s
-          name
-      end
+  def to_s
+      name
+  end
+
+  def avg_rating
+    sum = 0.0
+    ratings.each { |rating| sum += rating.rate }
+    sum/ratings.length
+  end
+
 end
