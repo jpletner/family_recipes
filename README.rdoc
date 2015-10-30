@@ -1,28 +1,35 @@
-== README
+# Family Recipes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Description: This application will serve as a way to post recipes and share them with others. 
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+TODO:   1. Ruby 2.2.2
+	2. Rails 4.2.4
+	3. Bundle Install
 
-* System dependencies
+## Usage
 
-* Configuration
+Share, rate, and tag recipes. 
 
-* Database creation
+## Contributing
 
-* Database initialization
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
 
-* How to run the test suite
+## History
 
-* Services (job queues, cache servers, search engines, etc.)
+Created October 30th, 2015
 
-* Deployment instructions
+## Credits
 
-* ...
+Jenny Pletner
+Tobias Brysiewicz
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## License
+
+Family Recipes - Copyright 2015
