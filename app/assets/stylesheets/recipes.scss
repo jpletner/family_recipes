@@ -31,13 +31,34 @@
 }
 
 #rate {
-  border: 2px solid #000;
-  background-color: gold;
+  border: 2px solid rgba(218,165,32,0.9);
+  background-color: rgba(218,165,32,0.6);
   border-radius: 80%;
-  width: 3%;
+  width: 4%;
   margin: 0 auto 10px auto;
 }
 
-.margin {
+.show {
   margin-right:5px;
+  height:450px;
+}
+
+.tagandrate {
+  height: 450px;
+}
+
+input[type="submit"] {
+  font-size: 12px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid #cc580c;
+  border-radius: 3px;
+  padding: 1px 6px;
+  background-color: white;
+  color: #cc580c;
+    &:hover {
+      background-color: #cc580c;
+      color: white;
+
+    }
 }
