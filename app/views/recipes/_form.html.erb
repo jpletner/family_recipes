@@ -11,13 +11,10 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
   </div>
   <div class="field">
     <%= f.label :author %><br>
@@ -31,13 +28,20 @@
     <%= f.label :instructions %><br>
     <%= f.text_area :instructions %>
   </div>
+  <div class="field">
+    <%= f.label "Add Image" %><br>
+    <%= f.file_field :image %>
+  </div>
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag(@recipe.image.url(:med), alt: "Upload Image") %>
+  </p>
 
 
-  <h2>Tags</h2>
+  <h2>Edit Tags</h2>
   <%= f.fields_for :tags do |tag| %>
     <div class="tag_fields">
       <div class="field">
-        <%= tag.label :name %><br>
         <%= tag.text_field :name %>
         <%= tag.check_box :_destroy %>
         <%= tag.label :_destroy, 'remove' %>
@@ -45,7 +49,7 @@
     </div>
     <% end %>
 
-    <h2>Ratings</h2>
+    <h2>Edit Ratings</h2>
     <%= f.fields_for :ratings do |rating| %>
       <div class="rating_fields">
         <div class="field">
@@ -56,21 +60,6 @@
         </div>
       </div>
     <% end %>
-
-
-    <form action="/recipes/<%=@recipe.id%>/add_rating" method="post">
-     <select id="rating_id" name="rating[rate]">
-       <option>Rate It</options>
-       <option value="1">1 Star</option>
-       <option value="2">2 Stars</option>
-       <option value="3">3 Stars</option>
-       <option value="4">4 Stars</option>
-       <option value="5">5 Stars</option>
-     </select>
-     <div class="actions">
-       <input type="submit" value="Add Rating">
-     </div>
-    </form>
 
 
     <div class="actions">
