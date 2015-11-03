@@ -1,4 +1,4 @@
-<%= form_for(@recipe) do |f| %>
+<%= form_for @recipe, html: { multipart: true } do |f| %>
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -14,6 +14,10 @@
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
   </div>
   <div class="field">
     <%= f.label :author %><br>
@@ -54,6 +58,7 @@
     <% end %>
 
 
+    <form action="/recipes/<%=@recipe.id%>/add_rating" method="post">
      <select id="rating_id" name="rating[rate]">
        <option>Rate It</options>
        <option value="1">1 Star</option>
@@ -62,6 +67,10 @@
        <option value="4">4 Stars</option>
        <option value="5">5 Stars</option>
      </select>
+     <div class="actions">
+       <input type="submit" value="Add Rating">
+     </div>
+    </form>
 
 
     <div class="actions">

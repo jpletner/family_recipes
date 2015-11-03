@@ -19,6 +19,10 @@
       <%= @recipe.title %>
     </p>
     <p>
+      <strong>Image:</strong>
+      <%= image_tag(@recipe.image.url(:med)) %>
+    </p>
+    <p>
       <strong>Author:</strong>
       <%= @recipe.author %>
     </p>

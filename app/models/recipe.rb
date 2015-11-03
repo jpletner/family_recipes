@@ -7,6 +7,11 @@ class Recipe < ActiveRecord::Base
   validates :ingredients, :presence => true
   validates :instructions, :presence => true
 
+  has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }
+    validates_attachment :image, :presence => true,
+      content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] },
+      size: { in: 0..10.megabytes }
+
   accepts_nested_attributes_for :tags,
                                 reject_if: proc { |attributes| attributes['name'].blank? },
                                 allow_destroy: true
