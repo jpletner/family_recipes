@@ -211,7 +211,21 @@
       </div>
     </div>
 	</section>
-
+	<section class="contact" id="contact">
+	<div class="container">
+		<div class="heading">
+			<%= image_tag 'sep.png' %>
+				<h2>Our Location</h2>
+				<%= image_tag 'sep.png' %>
+				<div>
+					<p>Phone: (619) 940-7848
+					<p>Location: 3803 Ray Street, San Diego, CA 92103</p>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p id="googleMap" style="width:300px;height:300px;"></p>
+					</div>
+				</div>
 	<!--footer-->
 	<section class="footer" id="footer">
 	<p class="text-center">
@@ -234,7 +248,11 @@
 </div><!--wrapper end-->
 
 <!--Javascripts-->
+<script crc="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="js/googlemaps.js"></script>
 <script src="js/jquery.js"></script>
+<script src="js/common.js"></script>
 <script src="js/modernizr.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/menustick.js"></script>
@@ -248,7 +266,7 @@
 <script src="js/colorfinder.js"></script>
 <script src="js/gridscroll.js"></script>
 <script src="js/contact.js"></script>
-<script src="js/common.js"></script>
+
 
 <script type="text/javascript">
 jQuery(function($) {

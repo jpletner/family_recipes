@@ -6,6 +6,18 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+  <script>
+  $(document).ready(function(){
+    var coordinates = new google.maps.LatLng(32.7475811,-117.1311596);
+    var mapOptions = {
+      center: coordinates,
+      zoom:15,
+      mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+    var mapContainer = $("#googleMap")[0];
+    var map = new google.maps.Map(mapContainer, mapOptions);
+  });
+  </script>
 </head>
 <body>
 
