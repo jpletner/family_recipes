@@ -12,6 +12,15 @@ TODO:   1. Ruby 2.2.2
 
 Share, rate, and tag recipes. 
 
+## Story Board
+
+1. Dropdown Rating Selection
+2. User Profile Image Upload
+3. Top Ratings Section - to pull from database
+4. Tags Section - to pull from database
+5. Testing
+6. Styling
+
 ## Contributing
 
 1. Fork it!
