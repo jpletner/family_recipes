@@ -75,7 +75,7 @@
 					<a href="#"><b>Download my resume</b></a>
 					<h4 class="notopmarg nobotmarg">Pletner</h4>
 					<p>
-						bio here
+						Pasta Lovers
 					</p>
 				</div>
 			</div>
@@ -85,7 +85,7 @@
 					<a href="#"><b>Download my resume</b></a>
 					<h4 class="notopmarg nobotmarg">Brysiewicz</h4>
 					<p>
-						bio here
+						Apple Pie Masters
 					</p>
 				</div>
 			</div>
@@ -102,13 +102,13 @@
 			<%= image_tag 'sep.png' %>
 		</div>
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-12">
 				<p id="notice"><%= notice %></p>
 
 				<table class="recipe_list">
 				  <thead>
 				    <tr>
-							<th><%= sortable "avg_rating", "Rating" %></th>
+							<th><%= sortable "average_rating", "Rating" %></th>
 				      <th><%= sortable "title" %></th>
 				      <th><%= sortable "author" %></th>
 				      <th><%= sortable "ingredients" %></th>
@@ -118,9 +118,27 @@
 				  </thead>
 
 				  <tbody>
+							<% if !@top.blank? %>
+								<tr>
+									<td>New</td>
+					        <td><%= @top.title %></td>
+					        <td><%= @top.author %></td>
+					        <td><%= @top.ingredients %></td>
+					        <td><%= @top.instructions %></td>
+					        <td><%= link_to 'Show', @top %></td>
+					        <td><%= link_to 'Edit', edit_recipe_path(@top) %></td>
+					        <td><%= link_to 'Destroy', @top, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+								</tr>
+							<% end %>
 				    <% @recipes.each do |recipe| %>
+							<% if recipe != @top %>
 				      <tr>
-								<td><%= recipe.avg_rating %></td>
+								<td><% if recipe.average_rating.nil? %>
+												New
+										<% else %>
+									 			<%= recipe.average_rating %>
+										<% end %>
+								</td>
 				        <td><%= recipe.title %></td>
 				        <td><%= recipe.author %></td>
 				        <td><%= recipe.ingredients %></td>
@@ -129,6 +147,7 @@
 				        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
 				        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				      </tr>
+							<% end %>
 				    <% end %>
 				  </tbody>
 				</table>

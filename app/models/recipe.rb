@@ -1,6 +1,6 @@
 class Recipe < ActiveRecord::Base
   has_many :tags, dependent: :destroy
-  has_many :ratings
+  has_many :ratings, dependent: :destroy
 
   validates :title, :presence => true
   validates :author, :presence => true
@@ -11,14 +11,13 @@ class Recipe < ActiveRecord::Base
                                 reject_if: proc { |attributes| attributes['name'].blank? },
                                 allow_destroy: true
 
+  accepts_nested_attributes_for :ratings,
+                                reject_if: proc { |attributes| attributes['rate'].blank? },
+                                allow_destroy: true
+
   def to_s
       name
   end
 
-  def avg_rating
-    sum = 0.0
-    ratings.each { |rating| sum += rating.rate }
-    sum/ratings.length
-  end
 
 end

@@ -9,6 +9,15 @@ class RecipesController < ApplicationController
     @tags = Tag.all
     @ratings = Rating.all
     @recipes = Recipe.order(sort_column + " " + sort_direction)
+    @top = []
+    @recipes.each do |recipe|
+      if recipe.average_rating.blank?
+          norating = []
+          norating << recipe
+          @top = norating.sample
+          @top.save
+      end
+    end
   end
 
   # GET /recipes/1
@@ -66,7 +75,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     newTag = Tag.new(params[:tag])
     if newTag.valid?
-      newTag.name.downcase!
+      newTag.name.downcase! # ! alters the original
       newTag.save
       @recipe.tags << newTag
       @recipe.save
@@ -81,6 +90,7 @@ class RecipesController < ApplicationController
     if newRating.valid?
       newRating.save
       @recipe.ratings << newRating
+      @recipe.average_rating = @recipe.ratings.average(:rate)
       @recipe.save
     end
     render 'show.html.erb'

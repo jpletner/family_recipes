@@ -29,5 +29,4 @@
 //= require modernizr
 //= require parallax
 //= require smoothscroll
-//= require starrr
 //= require wow

@@ -30,6 +30,7 @@
       <strong>Instructions:</strong>
       <%= @recipe.instructions %>
     </p>
+
     <strong>Tags:</strong>
     <% if @recipe.tags.any? %>
       <p>
@@ -40,7 +41,20 @@
     <% else %>
       <p>none available</p>
     <% end %>
+
+    <strong>Ratings:</strong>
+    <% if @recipe.ratings.any? %>
+      <p>
+        <% @recipe.ratings.each do |rating| %>
+          <%= rating.rate %>
+        <% end %>
+      </p>
+    <% else %>
+      <p>none available</p>
+    <% end %>
 </div>
+
+
 
 
 <div class="col-md-2 well">
@@ -53,15 +67,7 @@
           <input type="submit" name="commit" value="Add Tag" />
         </div>
       </form>
-      <form class="new_rating" id="new_rating" action="/recipes/<%= @recipe.id %>/add_rating" accept-charset="UTF-8" method="post">
-        <div class="row lead">
-            <div id="stars" class="starrr"></div>
-            You gave a rating of <span name="rating[rate]" id="count">0</span> star(s)
-    	  </div>
-        <div class="actions">
-          <input type="submit" name="commit" value="Add Rating" />
-        </div>
-      </form>
+
   		<form class="new_rating" id="new_rating" action="/recipes/<%= @recipe.id %>/add_rating" accept-charset="UTF-8" method="post">
   			<div class="field">
   				<label for="rating_name">Rating</label><br>

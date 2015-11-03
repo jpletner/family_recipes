@@ -41,6 +41,28 @@
     </div>
     <% end %>
 
+    <h2>Ratings</h2>
+    <%= f.fields_for :ratings do |rating| %>
+      <div class="rating_fields">
+        <div class="field">
+          <%= rating.label :rate %><br>
+          <%= rating.text_field :rate %>
+          <%= rating.check_box :_destroy %>
+          <%= rating.label :_destroy, 'remove' %>
+        </div>
+      </div>
+    <% end %>
+
+
+     <select id="rating_id" name="rating[rate]">
+       <option>Rate It</options>
+       <option value="1">1 Star</option>
+       <option value="2">2 Stars</option>
+       <option value="3">3 Stars</option>
+       <option value="4">4 Stars</option>
+       <option value="5">5 Stars</option>
+     </select>
+
 
     <div class="actions">
       <%= f.submit %>
