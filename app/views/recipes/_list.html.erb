@@ -1,0 +1,65 @@
+<!--Recipes List-->
+<section class="aboutus" id="recipes">
+<div class="container">
+  <div class="heading text-center">
+    <%= image_tag 'sep.png' %>
+    <h2>Recipe List</h2>
+    <%= image_tag 'sep.png' %>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p id="notice"><%= notice %></p>
+
+      <table class="recipe_list">
+        <thead>
+          <tr>
+            <th><%= sortable "average_rating", "Rating" %></th>
+            <th><%= sortable "title" %></th>
+            <th><%= sortable "author" %></th>
+            <th><%= sortable "ingredients" %></th>
+            <th><%= sortable "instructions" %></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <% if !@top.blank? %>
+              <tr>
+                <td>New</td>
+                <td><%= @top.title %></td>
+                <td><%= @top.author %></td>
+                <td><%= @top.ingredients %></td>
+                <td><%= @top.instructions %></td>
+                <td><%= link_to 'Show', @top %></td>
+                <td><%= link_to 'Edit', edit_recipe_path(@top) %></td>
+                <td><%= link_to 'Destroy', @top, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          <% @recipes.each do |recipe| %>
+            <% if recipe != @top %>
+            <tr>
+              <td><% if recipe.average_rating.nil? %>
+                      New
+                  <% else %>
+                      <%= recipe.average_rating %>
+                  <% end %>
+              </td>
+              <td><%= recipe.title %></td>
+              <td><%= recipe.author %></td>
+              <td><%= recipe.ingredients %></td>
+              <td><%= recipe.instructions %></td>
+              <td><%= link_to 'Show', recipe %></td>
+              <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+              <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+        <%= link_to 'Add Recipe', new_recipe_path, :class => "new_recipe_btn" %>
+    </div>
+  </div>
+</div>
+</section>

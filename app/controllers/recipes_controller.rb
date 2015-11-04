@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
+  respond_to :html, :json
 
   # GET /recipes
   # GET /recipes.json
@@ -59,6 +60,8 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
   def update
+    @recipe.average_rating = @recipe.ratings.average(:rate)
+
     respond_to do |format|
       if @recipe.update(recipe_params)
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
@@ -111,6 +114,14 @@ class RecipesController < ApplicationController
     if !params[:search_word].nil?
         search_word = params[:search_word].strip
         @recipes = Recipe.where("title LIKE '%#{search_word}%'")
+    end
+  end
+
+  def get_random_recipe
+    @recipe = Recipe.all.sample
+    respond_to do |format|
+      format.html { redirect_to recipes_url }
+      format.json { render :show, status: :ok, location: @recipe }
     end
   end
 

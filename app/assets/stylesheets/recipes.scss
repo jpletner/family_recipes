@@ -7,8 +7,6 @@
   td {
     padding-right: 50px;
   }
-
-
 }
 
 .new_recipe_btn {
@@ -20,7 +18,6 @@
     &:hover {
       background-color: #cc580c;
       color: white;
-
     }
 }
 
@@ -60,7 +57,6 @@ input[type="submit"] {
     &:hover {
       background-color: #cc580c;
       color: white;
-
     }
 }
 
@@ -87,7 +83,6 @@ input.search {
     &:hover {
       background-color: #fff;
       color: #cc580c;
-
     }
 }
 
@@ -96,4 +91,15 @@ input#word_search_input, input#tag_search_input {
   border-radius: 2px;
   line-height: 1px;
   background-color: transparent;
+}
+
+.tag_image img {
+  width: 255px;
+  height: 160px;
+  overflow: hidden;
+}
+
+.grid-wrap figcaption {
+  height: 100px;
+  overflow:hidden;
 }

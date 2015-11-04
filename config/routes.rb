@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations'}
   root 'recipes#index'
+  match('/recipes/get_random_recipe', {:via => :get, :to => 'recipes#get_random_recipe'})
   match('/recipes/search_word', {:via => :get, :to => 'recipes#search_word'})
   match('/tags/search', {:via => :get, :to => 'tags#search'})
   match('/recipes/:id/add_tag', {:via => :post, :to => 'recipes#add_tag'})
   match('/recipes/:id/add_rating', {:via => :post, :to => 'recipes#add_rating'})
-
 
   resources :ratings
   resources :tags

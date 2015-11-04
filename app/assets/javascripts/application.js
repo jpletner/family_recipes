@@ -29,3 +29,6 @@
 //= require parallax
 //= require smoothscroll
 //= require wow
+//= require random_recipes
+//= require navbar-wrapper
+//= require google-maps
