@@ -28,6 +28,7 @@
   margin-top: 25px;
   color: #ccc;
   font-size: 18px;
+  font-weight: 500;
 }
 
 #rate {
@@ -65,4 +66,34 @@ input[type="submit"] {
 
 #googleMap {
   margin: 0 35%;
+}
+
+div#user_nav {
+  background-color: #000;
+  a:hover {
+      color: white;
+  }
+}
+
+input.search {
+  font-size: 12px;
+  margin: 0 auto 0 5px;
+  text-align: center;
+  border: 1px solid #cc580c;
+  border-radius: 3px;
+  padding: 1px 6px;
+  background-color: #cc580c;
+  color: #fff;
+    &:hover {
+      background-color: #fff;
+      color: #cc580c;
+
+    }
+}
+
+input#word_search_input, input#tag_search_input {
+  text-align: left;
+  border-radius: 2px;
+  line-height: 1px;
+  background-color: transparent;
 }

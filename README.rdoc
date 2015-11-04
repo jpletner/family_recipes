@@ -1,6 +1,6 @@
 # Family Recipes
 
-Description: This application will serve as a way to post recipes and share them with others. 
+Description: This application will serve as a way to post recipes and share them with others.
 
 ## Installation
 
@@ -10,16 +10,19 @@ TODO:   1. Ruby 2.2.2
 
 ## Usage
 
-Share, rate, and tag recipes. 
+Share, rate, and tag recipes.
 
 ## Story Board
 
-1. Dropdown Rating Selection
+1. Dropdown Rating Selection [X]
 2. User Profile Image Upload
-3. Top Ratings Section - to pull from database
+3. Our Favorites Section - to pull from database
 4. Tags Section - to pull from database
-5. Testing
-6. Styling
+5. Unit Testing
+6. Integration Testing
+7. Styling
+8. Add google map to test API [X]
+9. Incorporate Yelp or other review site API
 
 ## Contributing
 

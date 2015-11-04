@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require googlemaps
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -19,7 +18,6 @@
 //= require classie
 //= require colorfinder
 //= require common
-//= require contact
 //= require easing
 //= require gallery
 //= require gridscroll
