@@ -54,7 +54,7 @@
       <div class="rating_fields">
         <div class="field">
           <%= rating.label :rate %><br>
-          <%= rating.text_field :rate %>
+          <%= rating.number_field :rate, in: 1...6 %>
           <%= rating.check_box :_destroy %>
           <%= rating.label :_destroy, 'remove' %>
         </div>
