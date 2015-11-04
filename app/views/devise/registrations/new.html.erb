@@ -31,6 +31,15 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label "Add Image" %><br>
+    <%= f.file_field :image %>
+  </div>
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag(@user.image.url(:med), alt: "Upload Image") %>
+  </p>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
