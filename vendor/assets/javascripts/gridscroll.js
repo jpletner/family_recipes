@@ -4,12 +4,12 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * Copyright 2014, Codrops
  * http://www.codrops.com
  */
 ;( function( window ) {
-	
+
 	'use strict';
 
 	var docElem = window.document.documentElement,
@@ -36,7 +36,7 @@
 	function getViewportW() {
 		var client = docElem['clientWidth'],
 			inner = window['innerWidth'];
-		
+
 		if( client < inner )
 			return inner;
 		else
@@ -44,7 +44,7 @@
 	}
 
 	function extend( a, b ) {
-		for( var key in b ) { 
+		for( var key in b ) {
 			if( b.hasOwnProperty( key ) ) {
 				a[key] = b[key];
 			}
@@ -153,7 +153,7 @@
 
 		// set viewport items (current, next and previous)
 		this._setViewportItems();
-		
+
 		// add class "current" and "show" to currentItem
 		classie.addClass( this.currentItem, 'current' );
 		classie.addClass( this.currentItem, 'show' );
@@ -180,7 +180,7 @@
 		}
 
 		this.isAnimating = true;
-		
+
 		// reset viewport items
 		this._setViewportItems();
 
@@ -293,7 +293,7 @@
 				// remove classes show and current from the slideshow items
 				classie.removeClass( self.currentItem, 'current' );
 				classie.removeClass( self.currentItem, 'show' );
-				
+
 				if( self.prevItem ) {
 					classie.removeClass( self.prevItem, 'show' );
 				}

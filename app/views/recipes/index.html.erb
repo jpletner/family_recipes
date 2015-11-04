@@ -7,19 +7,17 @@
 					<%= image_tag "logo.png", :id => "site-title", :class => "wow fadeInDown" %>
 					<h2 class="intro wow zoomIn" wow-data-delay="0.4s" wow-data-duration="0.9s">Family Recipes</h2>
 					<div>
-						<h1 class="white">Search Recipes by Tags</h1>
 								<form action ="/tags/search" method="get">
-									<label for="tag_search_input">Enter Tag</label>
-									<input id="tag_search_input" type="text" name="search_string" />
-									<input type="submit" value="Search" />
+									<label for="tag_search_input" class="white">Search by Tags </label>
+									<input id="tag_search_input" class="search_input" type="text" name="search_string" />
+									<input class="search" type="submit" value="Search" />
 								</form>
 					</div>
 					<div>
-						<h1 class="white">Search Recipes by Words</h1>
 								<form action ="/recipes/search_word" method="get">
-									<label for="word_search_input">Enter Text</label>
+									<label for="word_search_input" class="white">Search by Words</label>
 									<input id="word_search_input" type="text" name="search_word" />
-									<input type="submit" value="Search" />
+									<input class="search" class="search_input" type="submit" value="Search" />
 								</form>
 					</div>
 				</div>
@@ -37,7 +35,7 @@
 									<ul class="nav navbar-nav">
 										<li class="menuItem active"><a href="#wrapper">Home</a></li>
 										<li class="menuItem"><a href="#aboutus">About Us</a></li>
-										<li class="menuItem"><a href="#specialties">Top Families</a></li>
+										<li class="menuItem"><a href="#specialties">Our Favorites</a></li>
 										<li class="menuItem"><a href="#gallery">Tag Gallery</a></li>
 										<li class="menuItem"><a href="#feedback">Feedback</a></li>
 										<li class="menuItem"><a href="#contact">Newsletter</a></li>
@@ -246,26 +244,6 @@
 	</section>
 
 </div><!--wrapper end-->
-
-<!--Javascripts-->
-<script crc="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="http://maps.googleapis.com/maps/api/js"></script>
-<script src="js/googlemaps.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/common.js"></script>
-<script src="js/modernizr.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/menustick.js"></script>
-<script src="js/parallax.js"></script>
-<script src="js/easing.js"></script>
-<script src="js/wow.js"></script>
-<script src="js/smoothscroll.js"></script>
-<script src="js/masonry.js"></script>
-<script src="js/imgloaded.js"></script>
-<script src="js/classie.js"></script>
-<script src="js/colorfinder.js"></script>
-<script src="js/gridscroll.js"></script>
-<script src="js/contact.js"></script>
 
 
 <script type="text/javascript">
